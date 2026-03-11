@@ -1,0 +1,17 @@
+<router-outlet />
+
+@if (store.loading()) {
+  <p>Loading news...</p>
+} @else {
+  <ul>
+    @for (item of store.articles(); track item.id) {
+      <li>{{ item.title }}</li>
+    }
+  </ul>
+}
+
+<lib-action-card
+  title="Breaking News"
+  content="Market hits all-time high!"
+  (actioned)="onReadMore()"
+/>

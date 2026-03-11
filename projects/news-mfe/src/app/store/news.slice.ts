@@ -1,0 +1,47 @@
+export interface NewsSlice {
+  readonly articles: ArticleInterface[];
+  readonly loading: boolean;
+  readonly error: string | null;
+}
+
+export const initialNewsSlice: NewsSlice = {
+  articles: [],
+  loading: false,
+  error: null,
+};
+
+export interface NewsResponseInterface {
+  count: number;
+  next: string;
+  previous: null;
+  results: ArticleInterface[];
+}
+
+export interface ArticleInterface {
+  id: number;
+  title: string;
+  authors: Author[];
+  url: string;
+  image_url: string;
+  news_site: string;
+  summary: string;
+  published_at: Date;
+  updated_at: Date;
+  featured: boolean;
+  launches: any[];
+  events: any[];
+}
+
+export interface Author {
+  name: string;
+  socials: Socials | null;
+}
+
+export interface Socials {
+  x: string;
+  youtube: string;
+  instagram: string;
+  linkedin: string;
+  mastodon: string;
+  bluesky: string;
+}

@@ -6,5 +6,314 @@
   },
   "newProjectRoot": "projects",
   "projects": {
+    "shell": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/shell",
+      "sourceRoot": "projects/shell/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-architects/native-federation:build",
+          "options": {},
+          "configurations": {
+            "production": {
+              "target": "shell:esbuild:production"
+            },
+            "development": {
+              "target": "shell:esbuild:development",
+              "dev": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-architects/native-federation:build",
+          "options": {
+            "target": "shell:serve-original:development",
+            "rebuildDelay": 0,
+            "dev": true,
+            "port": 0
+          }
+        },
+        "test": {
+          "builder": "@angular/build:unit-test"
+        },
+        "esbuild": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "browser": "projects/shell/src/main.ts",
+            "tsConfig": "projects/shell/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/shell/public"
+              }
+            ],
+            "styles": ["projects/shell/src/styles.scss"],
+            "polyfills": ["es-module-shims"]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-original": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "shell:esbuild:production"
+            },
+            "development": {
+              "buildTarget": "shell:esbuild:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 4200
+          }
+        }
+      }
+    },
+    "news-mfe": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/news-mfe",
+      "sourceRoot": "projects/news-mfe/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-architects/native-federation:build",
+          "options": {},
+          "configurations": {
+            "production": {
+              "target": "news-mfe:esbuild:production"
+            },
+            "development": {
+              "target": "news-mfe:esbuild:development",
+              "dev": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-architects/native-federation:build",
+          "options": {
+            "target": "news-mfe:serve-original:development",
+            "rebuildDelay": 0,
+            "dev": true,
+            "port": 0
+          }
+        },
+        "test": {
+          "builder": "@angular/build:unit-test"
+        },
+        "esbuild": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "browser": "projects/news-mfe/src/main.ts",
+            "tsConfig": "projects/news-mfe/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/news-mfe/public"
+              }
+            ],
+            "styles": ["projects/news-mfe/src/styles.scss"],
+            "polyfills": ["es-module-shims"]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-original": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "news-mfe:esbuild:production"
+            },
+            "development": {
+              "buildTarget": "news-mfe:esbuild:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 4201
+          }
+        }
+      }
+    },
+    "stock-mfe": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/stock-mfe",
+      "sourceRoot": "projects/stock-mfe/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-architects/native-federation:build",
+          "options": {},
+          "configurations": {
+            "production": {
+              "target": "stock-mfe:esbuild:production"
+            },
+            "development": {
+              "target": "stock-mfe:esbuild:development",
+              "dev": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-architects/native-federation:build",
+          "options": {
+            "target": "stock-mfe:serve-original:development",
+            "rebuildDelay": 0,
+            "dev": true,
+            "port": 0
+          }
+        },
+        "test": {
+          "builder": "@angular/build:unit-test"
+        },
+        "esbuild": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "browser": "projects/stock-mfe/src/main.ts",
+            "tsConfig": "projects/stock-mfe/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/stock-mfe/public"
+              }
+            ],
+            "styles": [
+              "projects/news-mfe/src/styles.scss",
+              "projects/stock-mfe/src/styles.scss",
+              "projects/shell/src/styles.scss"
+            ],
+            "polyfills": ["es-module-shims"]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-original": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "stock-mfe:esbuild:production"
+            },
+            "development": {
+              "buildTarget": "stock-mfe:esbuild:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 4202
+          }
+        }
+      }
+    },
+    "ui-kit": {
+      "projectType": "library",
+      "root": "projects/ui-kit",
+      "sourceRoot": "projects/ui-kit/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ui-kit/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ui-kit/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/ui-kit/tsconfig.spec.json"
+          }
+        }
+      }
+    }
   }
 }
