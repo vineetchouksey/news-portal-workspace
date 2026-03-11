@@ -3,6 +3,8 @@ import { initFederation } from '@angular-architects/native-federation';
 initFederation({
   newsMfe: 'http://localhost:4201/remoteEntry.json',
   stockMfe: 'http://localhost:4202/remoteEntry.json',
+  bookMfe: 'http://localhost:4203/remoteEntry.json',
+  dashboardMfe: 'http://localhost:4204/remoteEntry.json',
 })
   .catch((err) => console.error(err))
   .then((_) => import('./bootstrap'))

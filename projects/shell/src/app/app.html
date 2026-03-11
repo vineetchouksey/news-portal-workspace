@@ -1,7 +1,3 @@
-<router-outlet />
+<p-menubar class="border-none border-bottom-1" [model]="items()" />
 
-<lib-action-card
-  title="Breaking News"
-  content="Market hits all-time high!"
-  (actioned)="onReadMore()"
-/>
+<router-outlet />

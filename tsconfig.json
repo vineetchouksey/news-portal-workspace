@@ -55,6 +55,12 @@
     },
     {
       "path": "./projects/book-mfe/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/dashboard-mfe/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/dashboard-mfe/tsconfig.spec.json"
     }
   ]
 }

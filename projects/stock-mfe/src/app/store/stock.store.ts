@@ -21,7 +21,6 @@ export const StockStore = signalStore(
           return socket$.pipe(
             tap((data) => {
               // 'p' is the price field in Binance's payload
-              console.log('Received data from WebSocket:', data);
               patchState(store, { price: parseFloat(data.p).toFixed(2) });
             }),
           );
