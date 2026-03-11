@@ -6,10 +6,6 @@ module.exports = withNativeFederation({
     ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
     'primeng/api': { singleton: true, strictVersion: true },
     'primeng/button': { singleton: true, strictVersion: true },
-    'ui-kit': {
-      singleton: true,
-      requiredVersion: '0.0.1', // Match the version in your library's package.json
-    },
   },
 
   skip: [
@@ -17,6 +13,7 @@ module.exports = withNativeFederation({
     'rxjs/fetch',
     'rxjs/testing',
     'rxjs/webSocket',
+    'primeicons',
     // Add further packages you don't need at runtime
   ],
 
