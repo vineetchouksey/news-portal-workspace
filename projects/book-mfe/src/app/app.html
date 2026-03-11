@@ -1,0 +1,17 @@
+<router-outlet />
+
+@if (bookStore.loading()) {
+  <p>Loading news...</p>
+} @else {
+  <lib-data-table
+    [data]="bookStore.books()"
+    [tableColumns]="[
+      { field: 'number', header: 'Number' },
+      { field: 'title', header: 'Title' },
+      { field: 'originalTitle', header: 'Original Title' },
+      { field: 'releaseDate', header: 'Release Date' },
+      { field: 'description', header: 'Description' },
+      { field: 'pages', header: 'Pages' },
+    ]"
+  ></lib-data-table>
+}

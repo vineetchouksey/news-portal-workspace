@@ -1,25 +1,21 @@
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
-import { initialNewsSlice, NewsResponseInterface } from './news.slice';
+import { BookInterface, initialBookSlice } from './book.slice';
 import { inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { pipe, switchMap, tap } from 'rxjs';
 
-export const NewsStore = signalStore(
+export const BookStore = signalStore(
   { providedIn: 'root' },
-  withState(initialNewsSlice),
+  withState(initialBookSlice),
   withMethods((store, http = inject(HttpClient)) => ({
-    loadNews: rxMethod<void>(
+    loadBooks: rxMethod<void>(
       pipe(
         tap(() => patchState(store, { loading: true })),
         switchMap(() =>
-          http.get<NewsResponseInterface>(
-            'https://api.spaceflightnewsapi.net/v4/articles/?limit=10',
-          ),
+          http.get<BookInterface[]>('https://potterapi-fedeperin.vercel.app/en/books'),
         ),
-        tap((response: NewsResponseInterface) =>
-          patchState(store, { articles: response.results, loading: false }),
-        ),
+        tap((response: BookInterface[]) => patchState(store, { books: response, loading: false })),
       ),
     ),
   })),

@@ -49,6 +49,12 @@
     },
     {
       "path": "./projects/ui-kit/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/book-mfe/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/book-mfe/tsconfig.spec.json"
     }
   ]
 }
