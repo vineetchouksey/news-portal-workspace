@@ -1,7 +1,11 @@
+<p-card header="Live Crypto Market">
+  <div class="flex align-items-center gap-3">
+    <h3>{{ store.symbol() }}</h3>
+    <p-tag [value]="'$ ' + store.price()" severity="success" [style]="{ 'font-size': '1.5rem' }">
+    </p-tag>
+  </div>
+  @if (store.connected()) {
+    <small class="text-green-500">● Live Connection Active</small>
+  }
+</p-card>
 <router-outlet />
-
-<lib-action-card
-  title="Breaking News"
-  content="Market hits all-time high!"
-  (actioned)="onReadMore()"
-/>

@@ -1,6 +1,6 @@
 <div class="card">
   <p-table [value]="data()" stripedRows [tableStyle]="{ 'min-width': '50rem' }">
-    <ng-template #header>
+    <ng-template #header class="bg-primary">
       <tr>
         @for (column of tableColumns(); track column.field) {
           <th>{{ column.header }}</th>

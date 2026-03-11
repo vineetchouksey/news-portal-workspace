@@ -5,8 +5,7 @@
     "types": []
   },
   "include": [
-    "src/**/*.ts",
-    "../../dist/ui-kit"
+    "src/**/*.ts"
   ],
   "exclude": [
     "src/**/*.spec.ts"
