@@ -1,4 +1,4 @@
 <p-card [header]="title()">
   <p>{{ content() }}</p>
-  <p-button label="Action" (onClick)="actioned.emit()" />
+  <p-button label="Action" severity="secondary" (onClick)="actioned.emit()" />
 </p-card>

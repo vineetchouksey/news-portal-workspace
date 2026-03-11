@@ -20,6 +20,9 @@ module.exports = withNativeFederation({
     'rxjs/testing',
     'rxjs/webSocket',
     'primeicons',
+    '@primeuix/themes/aura',
+    '@primeuix/themes/aura/accordion', // Add any other specific sub-paths if they appear
+    '@primeuix/themes',
     // Add further packages you don't need at runtime
   ],
 

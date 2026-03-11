@@ -1,11 +1,11 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NewsStore } from './store/news.store';
-import { ActionCard } from 'ui-kit';
+import { ActionCard, DataTable } from 'ui-kit';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ActionCard],
+  imports: [RouterOutlet, ActionCard, DataTable],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })

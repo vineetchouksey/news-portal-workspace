@@ -3,15 +3,25 @@
 @if (store.loading()) {
   <p>Loading news...</p>
 } @else {
-  <ul>
+  <!-- <ul>
     @for (item of store.articles(); track item.id) {
       <li>{{ item.title }}</li>
     }
-  </ul>
+  </ul> -->
+
+  <lib-data-table
+    [data]="store.articles()"
+    [tableColumns]="[
+      { field: 'title', header: 'Title' },
+      { field: 'summary', header: 'Summary' },
+      { field: 'published_at', header: 'Published At' },
+    ]"
+  >
+  </lib-data-table>
 }
 
-<lib-action-card
+<!-- <lib-action-card
   title="Breaking News"
   content="Market hits all-time high!"
   (actioned)="onReadMore()"
-/>
+/> -->
